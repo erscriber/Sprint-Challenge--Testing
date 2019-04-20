@@ -10,12 +10,12 @@ describe("GET route for '/games'", () => {
 
     it('return empty array if no games', async () => {
         const response = await request(server).get('/games');
-        expect(response.body).toEqual([ ]);
+        expect(response.body).toEqual([]);
     });
 
     it('returns array of all stored games', async () => {
         const response = await request(server).get('/games');
-        expect(response.body.length).toBe();
+        expect(response.body.length).toBe(0);
     });
 });
 
@@ -27,7 +27,7 @@ describe("POST route for '/games'", () => {
 
     it('returns error message if invalid data is entered', async () => {
         const response = await request(server).post('/games').send({ invalid: 'data'});
-        expect(response.body.error).toBe("incorrect games data");
+        expect(response.body.error).toBe("incorrect game data");
     });
     
     it('returns status 201 if data successfully added', async () => {
